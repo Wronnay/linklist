@@ -1,0 +1,13 @@
+Schritt 1:
+------------------------
+-> Zip-Archiv entpacken
+
+
+Schritt 2:
+------------------------
+-> Alle Dateien hochladen
+
+
+Schritt 3:
+------------------------
+-> die "install.php" Datei ausfuehren und den Anweisungen folgen

@@ -1,0 +1,61 @@
+/*
+Design by Christoph Miksche
+Website: http://celzekr.tk
+License: Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)
+
+Dieses Werk bzw. Inhalt steht unter einer Creative Commons Namensnennung-Nicht-kommerziell-
+Weitergabe unter gleichen Bedingungen 3.0 Unported Lizenz.
+
+Sie duerfen den/die Link/s zu Celzekr.tk nicht entfernen!
+
+(http://creativecommons.org/licenses/by-nc-sa/3.0/)
+*/
+html {
+margin-top:15px; 
+font-family : Arial, Verdana, Helvetica, sans-serif;
+}
+body {text-align : left; background-color : #ffffff; max-width:90%; color:#000000; margin : 0 auto; padding : 10px 10px 10px 10px; -moz-box-shadow: 0px 0px 15px #000000; -webkit-box-shadow: 0px 0px 15px #000000; box-shadow: 0px 0px 15px #000000; border-bottom-right-radius: 5px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-top-left-radius: 5px; border:1px solid #000000; }
+a:link    {color: #414141;  text-decoration:underline;}
+a:visited {color: #414141;  text-decoration:underline;}
+a:focus   {color: #414141;  text-decoration:none;}
+a:hover   {color: #000000;  text-decoration:none;}
+a:active  {color: #414141;  text-decoration:none;}
+#links {
+font-size: 14px;
+padding : 5px 5px 5px 5px;
+margin-bottom:10px;
+}
+ .fehler {
+ text-align: left;
+border-left:5px solid #ff0000;
+background-color: #ffafaf;
+padding: 5px 5px 5px 5px;
+margin: 5px 5px 5px 5px;
+ }
+.erfolg {
+ text-align: left;
+border-left:5px solid #36a736;
+background-color: #a6ffa6;
+padding: 5px 5px 5px 5px;
+margin: 5px 5px 5px 5px;
+ }
+.sp {
+-moz-box-shadow: 0px 0px 15px #000000; -webkit-box-shadow: 0px 0px 15px #000000; box-shadow: 0px 0px 15px #000000; 
+border-radius: 5px;
+border:1px solid #000000;
+padding: 5px 5px 5px 5px;
+margin: 15px 5px 5px 5px;
+}
+.link {
+ text-align: left;
+border-left:5px solid #cccccc;
+padding: 5px 5px 5px 5px;
+margin: 5px 5px 5px 5px;
+}
+.link:hover {
+ text-align: left;
+border-left:5px solid #000000;
+padding: 5px 5px 5px 5px;
+margin: 5px 5px 5px 5px;
+}
+.hallo {display:none;}
