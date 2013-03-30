@@ -7,7 +7,7 @@ mysql_select_db($DB)or die(mysql_error());
 function nocss($nocss) {
   $nocss = mysql_real_escape_string($nocss);
   $nocss = strip_tags($nocss);
-  $nocss = htmlspecialchars($nocss, ENT_NOQUOTES, "iso-8859-1");
+  $nocss = htmlspecialchars($nocss, ENT_QUOTES, "iso-8859-1");
   return $nocss;
 }
     $sql = "SELECT
