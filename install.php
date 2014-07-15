@@ -71,8 +71,8 @@ header("Location: ?install=2");
 ?>
 <div class="title2">(Schritt 2/2)</div><br>
 <b>Die Installation ist fertig!:</b><br>
-Wenn Sie noch Fragen, Probleme oder Wünsche haben oder wenn Sie einen Fehler gefunden haben, dann können Sie mir unter: <a href="http://wronnay.net/kontakt">http://wronnay.net/kontakt</a> eine Nachricht senden.
-<br><br><a href="index.php">> OK!</a><br><br>
+Wenn Sie noch Fragen, Probleme oder Wünsche haben oder wenn Sie einen Fehler gefunden haben, dann können Sie <a href="http://wronnayscripts.forenhosting.net/forum.php?id=3">hier</a> darüber diskutieren.
+<br><br><a href="../index.php">> OK!</a><br><br>
 <?php
 break;
 }
