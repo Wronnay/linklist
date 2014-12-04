@@ -1,8 +1,7 @@
 <?php
 error_reporting(0);
 include 'config.php';
-mysql_connect($HOST,$USER,$PW)or die(mysql_error());
-mysql_select_db($DB)or die(mysql_error());
+$dbc = new PDO(''.$DBTYPE.':host='.$HOST.';dbname='.$DB.'', ''.$USER.'', ''.$PW.'');
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -34,8 +33,9 @@ else {
         echo"<div class=\"fehler\">Bitte füllen Sie alle Felder aus!</div>";
       }
 	  else {
-	  $sql = "INSERT INTO wronnay_linkliste (titel, link, beschreibung, datum) VALUES ('".mysql_real_escape_string($_REQUEST['titel'])."','".mysql_real_escape_string($_REQUEST['link'])."','".mysql_real_escape_string($_REQUEST['beschreibung'])."',now())";
-	  $result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+	  $sql = "INSERT INTO wronnay_linkliste (titel, link, beschreibung, datum) VALUES ('".$_REQUEST['titel']."','".$_REQUEST['link']."','".$_REQUEST['beschreibung']."',now())";
+	  $dbpre = $dbc->prepare($sql);
+	  $dbpre->execute();
 	  echo "<div class=\"erfolg\">Sie haben den Link eingetragen.</div>";
 	  }
 }

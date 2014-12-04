@@ -46,17 +46,21 @@ else {
       $USER = '$USER';
       $PW = '$PW';
       $DB = '$DB';
+      $DBTYPE = '$DBTYPE';
       $daten = "<?php
       $HOST = '$_POST[host]'; 
       $USER = '$_POST[user]'; 
       $PW = '$_POST[pass]'; 
       $DB = '$_POST[database]'; 
+      $DBTYPE = 'mysql';
       ?>";
       fwrite($fp,$daten);
 	  include("config.php");
-      mysql_connect($HOST,$USER,$PW)or die(mysql_error());
-      mysql_select_db($DB)or die(mysql_error());
-	  mysql_query("CREATE TABLE IF NOT EXISTS wronnay_linkliste (
+	  $dbc = new PDO('mysql:host='.$HOST.'', ''.$USER.'', ''.$PW.'');   	
+	  $dbpre = $dbc->prepare("CREATE DATABASE IF NOT EXISTS ".$DB.";");
+	  $dbpre->execute();
+      $dbc = new PDO(''.$DBTYPE.':host='.$HOST.';dbname='.$DB.'', ''.$USER.'', ''.$PW.'');
+	  $dbpre = $dbc->prepare("CREATE TABLE IF NOT EXISTS wronnay_linkliste (
       id INT(22) NOT NULL auto_increment,
       titel varchar(220) NOT NULL,
 	  link varchar(220) NOT NULL,
@@ -64,6 +68,7 @@ else {
 	  datum datetime NOT NULL,
       PRIMARY KEY (id) );
       ");
+      $dbpre->execute();
 header("Location: ?install=2");
 }
   break;
@@ -72,7 +77,7 @@ header("Location: ?install=2");
 <div class="title2">(Schritt 2/2)</div><br>
 <b>Die Installation ist fertig!:</b><br>
 Wenn Sie noch Fragen, Probleme oder Wünsche haben oder wenn Sie einen Fehler gefunden haben, dann können Sie <a href="http://wronnayscripts.forenhosting.net/forum.php?id=3">hier</a> darüber diskutieren.
-<br><br><a href="../index.php">> OK!</a><br><br>
+<br><br><a href="index.php">> OK!</a><br><br>
 <?php
 break;
 }

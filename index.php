@@ -2,10 +2,8 @@
 error_reporting(0);
 include 'config.php';
 if (!isset ($DB)) { header("Location: install.php"); }
-mysql_connect($HOST,$USER,$PW)or die(mysql_error());
-mysql_select_db($DB)or die(mysql_error());
+$dbc = new PDO(''.$DBTYPE.':host='.$HOST.';dbname='.$DB.'', ''.$USER.'', ''.$PW.'');
 function nocss($nocss) {
-  $nocss = mysql_real_escape_string($nocss);
   $nocss = strip_tags($nocss);
   $nocss = htmlspecialchars($nocss, ENT_QUOTES, "iso-8859-1");
   return $nocss;
@@ -20,7 +18,8 @@ function nocss($nocss) {
             wronnay_linkliste
         ORDER BY
             datum DESC";
-    $result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+    $dbpre = $dbc->prepare($sql);
+    $dbpre->execute();
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -45,10 +44,10 @@ Sie duerfen die Links zu celzekr.webpage4.me und Scripts.Wronnay.net nicht entfe
 <div style="font-size: 18px;"><b>Linkliste:</b></div>
 <div id="links">
 <?php
-			if (mysql_num_rows($result) == 0) {
+			if ($dbpre->rowCount() < 1) {
 	    echo "Es gibt noch keine Links!";
 	}
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = $dbpre->fetch(PDO::FETCH_ASSOC)) {
     echo "<div class=\"link\"><b><a href=\"".nocss($row['link'])."\">".nocss($row['titel'])."</a></b><br>".nocss($row['beschreibung'])."</div>";
     }
 ?>
